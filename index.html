@@ -249,55 +249,26 @@
         - #RESUME
       -->
       <article class="resume" data-page="resume">
-        <!-- Inside the "resume" article -->
-<section class="resume-filter">
-  <h3 class="h3">Filter by Category</h3>
-  <ul class="filter-list">
-    <li class="filter-item">
-      <button class="active" data-resume-filter-btn="all">All</button>
-    </li>
-    <li class="filter-item">
-      <button data-resume-filter-btn="graphic-design">Graphic Design</button>
-    </li>
-    <li class="filter-item">
-      <button data-resume-filter-btn="IT">IT</button>
-    </li>
-    <li class="filter-item">
-      <button data-resume-filter-btn="surveying">Surveying</button>
-    </li>
-    <!-- Add more categories as needed -->
-  </ul>
-</section>  
-  <!-- Add more timeline items with appropriate categories -->
-</ol>
-
-<!-- Add this JavaScript to the script.js file or in a new <script> tag -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const resumeFilterBtns = document.querySelectorAll('[data-resume-filter-btn]');
-  const timelineItems = document.querySelectorAll('.timeline-item');
-
-  resumeFilterBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-      const filterValue = this.getAttribute('data-resume-filter-btn');
-      
-      resumeFilterBtns.forEach(btn => btn.classList.remove('active'));
-      this.classList.add('active');
-
-      timelineItems.forEach(item => {
-        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-          item.style.display = '';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    });
-  });
-});
-</script>
         <header>
           <h2 class="h2 article-title">Resume</h2>
         </header>
+        <section class="resume-filter">
+          <h3 class="h3">Filter by Category</h3>
+          <ul class="filter-list">
+            <li class="filter-item">
+              <button class="active" data-resume-filter-btn="all">All</button>
+            </li>
+            <li class="filter-item">
+              <button data-resume-filter-btn="graphic-design">Graphic Design</button>
+            </li>
+            <li class="filter-item">
+              <button data-resume-filter-btn="IT">IT</button>
+            </li>
+            <li class="filter-item">
+              <button data-resume-filter-btn="surveying">Surveying</button>
+            </li>
+          </ul>
+        </section>  
         <section class="timeline">
           <div class="title-wrapper">
             <div class="icon-box">
@@ -630,5 +601,30 @@ document.addEventListener('DOMContentLoaded', function() {
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script src="./assets/js/FullView.js"></script>
   <script src="./assets/js/imageFiltering.js"></script>
+  
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const resumeFilterBtns = document.querySelectorAll('[data-resume-filter-btn]');
+  const timelineItems = document.querySelectorAll('.timeline-item');
+
+  resumeFilterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const filterValue = this.getAttribute('data-resume-filter-btn');
+      
+      resumeFilterBtns.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+
+      timelineItems.forEach(item => {
+        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+});
+</script>
 </body>
 </html>
